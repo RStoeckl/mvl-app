@@ -1,10 +1,6 @@
 package at.mvl.musikvereinleopoldsdorf;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -87,18 +83,21 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camara) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, mitgliederFragment).commit();
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_stuecke) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, stueckFragment).commit();
+            getSupportActionBar().setTitle(R.string.stuecke);
+        } else if (id == R.id.nav_mitglieder) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, mitgliederFragment).commit();
+            getSupportActionBar().setTitle(R.string.mitglieder);
+        } else if (id == R.id.nav_vorstand) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, vorstandFragment).commit();
+            getSupportActionBar().setTitle(R.string.vorstand);
+        } else if (id == R.id.nav_termine) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, terminFragment).commit();
+            getSupportActionBar().setTitle(R.string.termine);
+        } else if (id == R.id.nav_preise) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, preisFragment).commit();
+            getSupportActionBar().setTitle(R.string.preise);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

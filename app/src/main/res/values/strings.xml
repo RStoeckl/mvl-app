@@ -6,4 +6,9 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+    <string name="mitglieder">Mitglieder</string>
+    <string name="vorstand">Vorstand</string>
+    <string name="preise">Preise</string>
+    <string name="termine">Termine</string>
+    <string name="stuecke">Stücke</string>
 </resources>
