@@ -3,7 +3,6 @@ package at.mvl.musikvereinleopoldsdorf;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
-import android.support.v4.app.Fragment;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +10,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
+import at.mvl.musikvereinleopoldsdorf.content.MitgliederFragment;
+import at.mvl.musikvereinleopoldsdorf.content.PreisFragment;
+import at.mvl.musikvereinleopoldsdorf.content.StueckFragment;
+import at.mvl.musikvereinleopoldsdorf.content.TerminFragment;
+import at.mvl.musikvereinleopoldsdorf.content.VorstandFragment;
+import at.mvl.musikvereinleopoldsdorf.settings.NetworkFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -34,10 +41,9 @@ public class MainActivity extends AppCompatActivity
         stueckFragment = new StueckFragment();
         terminFragment = new TerminFragment();
         vorstandFragment = new VorstandFragment();
-        if(savedInstanceState==null||!savedInstanceState.getString("callnotagain").equals("please")) {
+        if (savedInstanceState == null || !savedInstanceState.getString("callnotagain").equals("please")) {
             getSupportFragmentManager().beginTransaction().add(R.id.content_frame, stueckFragment).commit();
-        }else
-        {
+        } else {
             getSupportActionBar().setTitle(savedInstanceState.getCharSequence("title"));
         }
 
@@ -85,9 +91,14 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            Intent intent = new Intent(this, EinstellungenActivity.class);
+            Intent intent = new Intent(this, SettingsActivity.class);
             startActivity(intent);
             return true;
+        } else if (id == R.id.refresh) {
+            Toast.makeText(this,"aktualisiert",Toast.LENGTH_SHORT).show();
+
+        } else if (id == R.id.delete_cache) {
+            Toast.makeText(this,"Zwischenspiecher entleert",Toast.LENGTH_SHORT).show();
         }
 
         return super.onOptionsItemSelected(item);
@@ -114,6 +125,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_preise) {
             getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, preisFragment).commit();
             getSupportActionBar().setTitle(R.string.preise);
+        } else if (id == R.id.nav_settings) {
+            //getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new NetworkFragment()).commit();
+            Intent intent = new Intent(this, SettingsActivity.class);
+            startActivity(intent);
+            getSupportActionBar().setTitle("Einstellungen");
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

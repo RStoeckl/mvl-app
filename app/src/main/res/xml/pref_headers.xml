@@ -1,17 +1,23 @@
 <preference-headers xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!-- These settings headers are only used on tablets. -->
+
     <header
-        android:fragment="at.mvl.musikvereinleopoldsdorf.EinstellungenActivity$GeneralPreferenceFragment"
+        android:fragment="at.mvl.musikvereinleopoldsdorf.SettingsActivity$GeneralPreferenceFragment"
         android:title="@string/pref_header_general" android:icon="@drawable/ic_info_black_24dp" />
 
     <header
-        android:fragment="at.mvl.musikvereinleopoldsdorf.EinstellungenActivity$NotificationPreferenceFragment"
+        android:fragment="at.mvl.musikvereinleopoldsdorf.SettingsActivity$NotificationPreferenceFragment"
         android:title="@string/pref_header_notifications"
         android:icon="@drawable/ic_notifications_black_24dp" />
 
     <header
-        android:fragment="at.mvl.musikvereinleopoldsdorf.EinstellungenActivity$DataSyncPreferenceFragment"
+        android:fragment="at.mvl.musikvereinleopoldsdorf.SettingsActivity$DataSyncPreferenceFragment"
         android:title="@string/pref_header_data_sync" android:icon="@drawable/ic_sync_black_24dp" />
+
+    <header
+        android:fragment="at.mvl.musikvereinleopoldsdorf.settings.NetworkFragment"
+        android:title="@string/set_network"
+        android:icon="@android:drawable/stat_sys_download"/>
 
 </preference-headers>

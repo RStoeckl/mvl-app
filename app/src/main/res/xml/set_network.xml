@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:defaultValue="@string/set_link_termine_def"
+        android:key="link_termine"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/set_link_termine" />
+    <EditTextPreference
+        android:defaultValue="@string/set_link_mitglieder_def"
+        android:key="link_mitglieder"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/set_link_mitglieder" />
+    <EditTextPreference
+        android:defaultValue="@string/set_link_vorstand_def"
+        android:key="link_vorstand"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/set_link_vorstand" />
+    <EditTextPreference
+        android:defaultValue="@string/set_link_stuecke_def"
+        android:key="link_stuecke"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/set_link_stuecke" />
+    <EditTextPreference
+        android:defaultValue="@string/set_link_preise_def"
+        android:key="link_preise"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/set_link_preise" />
+</PreferenceScreen>

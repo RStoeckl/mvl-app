@@ -1,4 +1,4 @@
-package at.mvl.musikvereinleopoldsdorf;
+package at.mvl.musikvereinleopoldsdorf.content;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,16 +7,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import at.mvl.musikvereinleopoldsdorf.R;
+
 /**
  * Created by richi on 02.11.15.
  */
-public class TerminFragment extends Fragment {
+public class StueckFragment extends Fragment {
 
     private View contentView;
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        contentView = inflater.inflate(R.layout.termin_layout, null);
+        contentView = inflater.inflate(R.layout.stueck_layout, null);
         return contentView;
     }
 

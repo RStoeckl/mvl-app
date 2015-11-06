@@ -25,6 +25,14 @@
             android:name=".EinstellungenActivity"
             android:label="@string/title_activity_einstellungen" >
         </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="at.mvl.musikvereinleopoldsdorf.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

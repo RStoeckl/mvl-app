@@ -1,4 +1,4 @@
-package at.mvl.musikvereinleopoldsdorf;
+package at.mvl.musikvereinleopoldsdorf.content;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+
+import at.mvl.musikvereinleopoldsdorf.R;
+import at.mvl.musikvereinleopoldsdorf.WebViewPreparer;
 
 /**
  * Created by richi on 02.11.15.
