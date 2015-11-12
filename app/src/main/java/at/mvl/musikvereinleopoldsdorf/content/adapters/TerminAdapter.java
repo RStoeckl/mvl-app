@@ -1,8 +1,14 @@
 package at.mvl.musikvereinleopoldsdorf.content.adapters;
 
+import android.content.Context;
 import android.database.DataSetObserver;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.view.LayoutInflaterCompat;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 
 import java.util.ArrayList;
@@ -13,24 +19,10 @@ import at.mvl.mvllib.tools.Downloader;
 /**
  * Created by richi on 06.11.15.
  */
-public class TerminAdapter implements ListAdapter {
+public class TerminAdapter extends BaseAdapter {
 
-    ArrayList<Termin> termine;
-
-    public TerminAdapter()
-    {
-
-    }
-
-    @Override
-    public void registerDataSetObserver(DataSetObserver observer) {
-
-    }
-
-    @Override
-    public void unregisterDataSetObserver(DataSetObserver observer) {
-
-    }
+    private ArrayList<Termin> termine;
+    private ContextCompat context;
 
     @Override
     public int getCount() {
@@ -48,37 +40,7 @@ public class TerminAdapter implements ListAdapter {
     }
 
     @Override
-    public boolean hasStableIds() {
-        return true;
-    }
-
-    @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         return null;
-    }
-
-    @Override
-    public int getItemViewType(int position) {
-        return 0;
-    }
-
-    @Override
-    public int getViewTypeCount() {
-        return 0;
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return termine.isEmpty();
-    }
-
-    @Override
-    public boolean areAllItemsEnabled() {
-        return true;
-    }
-
-    @Override
-    public boolean isEnabled(int position) {
-        return true;
     }
 }
