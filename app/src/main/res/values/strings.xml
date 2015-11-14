@@ -89,4 +89,12 @@
     <string name="refresh">Aktualisieren</string>
     <string name="delete_cache">Zwischenspeicher leeren</string>
 
+
+
+    <string name="termin_treffpunk">Treffpunkt:</string>
+    <string name="termin_dauer">Dauer:</string>
+    <string name="termin_beginn">Beginn:</string>
+    <string name="termin_beschreibung">Beschreibung:</string>
+    <string name="termin_adjustierung">Adjustierung:</string>
+
 </resources>
