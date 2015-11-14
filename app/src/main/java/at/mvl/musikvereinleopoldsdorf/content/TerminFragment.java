@@ -12,6 +12,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import at.mvl.musikvereinleopoldsdorf.R;
+import at.mvl.musikvereinleopoldsdorf.content.adapters.TerminAdapter;
 import at.mvl.mvllib.converter.JsonToTermin;
 import at.mvl.mvllib.data.Termin;
 import at.mvl.mvllib.tools.Downloader;
@@ -74,10 +75,9 @@ public class TerminFragment extends Fragment {
                 "      \"dauer\" : null\n" +
                 "   }\n" +
                 "]");
-        ArrayAdapter<Termin> adapter = new ArrayAdapter<Termin>(getContext(), R.layout.termin_row, termine);
-
+        TerminAdapter terminAdapter = new TerminAdapter(getActivity().getLayoutInflater(), termine);
         ListView list = (ListView) contentView.findViewById(R.id.termin_liste);
-        list.setAdapter(adapter);
+        list.setAdapter(terminAdapter);
 
         return contentView;
     }

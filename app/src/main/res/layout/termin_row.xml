@@ -3,21 +3,13 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/termin_name_header"
-        android:layout_row="0"
-        android:layout_column="0" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/termin_name_value"
+        android:id="@+id/termin_name_content"
         android:layout_row="0"
         android:layout_column="1" />
 
@@ -26,7 +18,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/termin_datum_header"
+        android:id="@+id/termin_treffpunkt_desc"
         android:layout_row="1"
         android:layout_column="0" />
 
@@ -35,7 +27,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Small Text"
-        android:id="@+id/termin_datum_value"
+        android:id="@+id/termin_treffpunkt_content"
         android:layout_row="1"
         android:layout_column="1" />
 </GridLayout>

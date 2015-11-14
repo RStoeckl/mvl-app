@@ -1,6 +1,7 @@
 package at.mvl.musikvereinleopoldsdorf.content.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.database.DataSetObserver;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -10,9 +11,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import at.mvl.musikvereinleopoldsdorf.R;
 import at.mvl.mvllib.data.Termin;
 import at.mvl.mvllib.tools.Downloader;
 
@@ -22,7 +25,12 @@ import at.mvl.mvllib.tools.Downloader;
 public class TerminAdapter extends BaseAdapter {
 
     private ArrayList<Termin> termine;
-    private ContextCompat context;
+    private LayoutInflater inflater;
+
+    public TerminAdapter(LayoutInflater inflater, ArrayList<Termin> termine) {
+        this.termine = termine;
+        this.inflater = inflater;
+    }
 
     @Override
     public int getCount() {
@@ -30,7 +38,7 @@ public class TerminAdapter extends BaseAdapter {
     }
 
     @Override
-    public Object getItem(int position) {
+    public Termin getItem(int position) {
         return termine.get(position);
     }
 
@@ -41,6 +49,10 @@ public class TerminAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        return null;
+        View row = inflater.inflate(R.layout.termin_row, parent, false);
+        Termin termin = getItem(position);
+        TextView name = (TextView) row.findViewById(R.id.termin_name_content);
+        name.setText(termin.getName());
+        return row;
     }
 }
