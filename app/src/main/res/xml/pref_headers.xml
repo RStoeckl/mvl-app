@@ -20,4 +20,9 @@
         android:title="@string/set_network"
         android:icon="@android:drawable/stat_sys_download"/>
 
+    <header
+        android:fragment="at.mvl.musikvereinleopoldsdorf.settings.AppearanceFragment"
+        android:title="@string/set_appearance"
+        android:icon="@android:drawable/ic_menu_view"/>
+
 </preference-headers>

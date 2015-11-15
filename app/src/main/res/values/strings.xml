@@ -73,6 +73,7 @@
     <string name="pref_title_vibrate">Vibrate</string>
 
     <string name="set_network">Netzwerk</string>
+    <string name="set_appearance">Darstellung</string>
 
     <string name="set_link_termine">Link zu den Terminen</string>
     <string name="set_link_vorstand">Link zum Vorstand</string>
@@ -85,6 +86,10 @@
     <string name="set_link_mitglieder_def">http://192.168.0.5/query/mitglieder.json</string>
     <string name="set_link_stuecke_def">http://192.168.0.5/query/buecher.json</string>
     <string name="set_link_preise_def">http://192.168.0.5/query/preuse.json</string>
+
+    <string name="set_appearance_dateformat">Datumsformat</string>
+
+    <string name="set_appearance_dateformat_def">EE d. MMM yyyy HH:mm</string>
 
     <string name="refresh">Aktualisieren</string>
     <string name="delete_cache">Zwischenspeicher leeren</string>

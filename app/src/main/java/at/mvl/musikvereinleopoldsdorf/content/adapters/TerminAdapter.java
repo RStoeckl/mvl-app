@@ -2,7 +2,9 @@ package at.mvl.musikvereinleopoldsdorf.content.adapters;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.DataSetObserver;
+import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.LayoutInflaterCompat;
@@ -60,7 +62,8 @@ public class TerminAdapter extends BaseAdapter {
         treffpunkt.setText(termin.getTreffpunkt());
 
         TextView beginn = (TextView) row.findViewById(R.id.termin_beginn_content);
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(inflater.getContext());
+        SimpleDateFormat sdf = new SimpleDateFormat(prefs.getString("appearance_dateformat","dd.MM.yyyy HH:m"));
         beginn.setText(sdf.format(termin.getBeginn().getTime()));
 
         TextView adjustierung = (TextView) row.findViewById(R.id.termin_adjustierung_content);
