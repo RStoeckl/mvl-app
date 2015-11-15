@@ -97,4 +97,6 @@
     <string name="termin_beschreibung">Beschreibung:</string>
     <string name="termin_adjustierung">Adjustierung:</string>
 
+    <string name="stueck_suche_text">Suche:</string>
+
 </resources>

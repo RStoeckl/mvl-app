@@ -6,8 +6,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Stücke"
-        android:id="@+id/textView"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:text="@string/stueck_suche_text"
+        android:id="@+id/stueck_suche_label"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/stueck_suche"
+        android:minWidth="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_below="@+id/stueck_suche_label"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <ExpandableListView
+        android:layout_below="@+id/stueck_suche"
+        android:id="@+id/stueck_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
 </RelativeLayout>
