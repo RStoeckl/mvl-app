@@ -7,4 +7,20 @@
         android:selectAllOnFocus="true"
         android:singleLine="true"
         android:title="@string/set_appearance_dateformat" />
+
+    <EditTextPreference
+        android:defaultValue="@string/set_appearance_pageformat_def"
+        android:key="appearance_pageformat"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/set_appearance_pageformat" />
+
+    <EditTextPreference
+        android:defaultValue="@string/set_appearance_pagesearch_def"
+        android:key="appearance_pagesearch"
+        android:maxLines="1"
+        android:selectAllOnFocus="true"
+        android:singleLine="true"
+        android:title="@string/set_appearance_pagesearch" />
 </PreferenceScreen>

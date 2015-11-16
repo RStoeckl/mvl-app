@@ -1,5 +1,7 @@
 package at.mvl.musikvereinleopoldsdorf;
 
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -12,6 +14,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import at.mvl.musikvereinleopoldsdorf.background.Downloader;
+import at.mvl.musikvereinleopoldsdorf.background.StartFertig;
 import at.mvl.musikvereinleopoldsdorf.content.MitgliederFragment;
 import at.mvl.musikvereinleopoldsdorf.content.PreisFragment;
 import at.mvl.musikvereinleopoldsdorf.content.StueckFragment;
@@ -31,6 +35,9 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        StartFertig sf = new StartFertig();
+        sf.startDownloader(this);
 
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

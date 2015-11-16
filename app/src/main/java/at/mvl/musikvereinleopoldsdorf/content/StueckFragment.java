@@ -1,6 +1,8 @@
 package at.mvl.musikvereinleopoldsdorf.content;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.text.Editable;
@@ -112,7 +114,7 @@ public class StueckFragment extends Fragment {
                 "      \"seiten\" : []\n" +
                 "   }\n" +
                 "]");
-        final StueckAdapter adapter = new StueckAdapter(buecher, getActivity().getLayoutInflater());
+        final StueckAdapter adapter = new StueckAdapter(buecher, buecher, getActivity().getLayoutInflater());
         list.setAdapter(adapter);
 
         EditText search = (EditText) contentView.findViewById(R.id.stueck_suche);
@@ -132,7 +134,8 @@ public class StueckFragment extends Fragment {
                 HashMap<Integer, Boolean> exps = new HashMap<Integer, Boolean>();
                 for (int i = 0; i < adapter.getGroupCount(); i++)
                     exps.put(i, list.isGroupExpanded(i));
-                StueckAdapter adapter = new StueckAdapter(buecher.searchFor(s.toString()), getActivity().getLayoutInflater());
+                SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(getContext());
+                StueckAdapter adapter = new StueckAdapter(buecher.searchFor(s.toString(), pref.getString("appearance_pagesearch","")), buecher, getActivity().getLayoutInflater());
                 list.setAdapter(adapter);
                 for (int i = 0; i < adapter.getGroupCount(); i++)
                     if (exps.get(i))

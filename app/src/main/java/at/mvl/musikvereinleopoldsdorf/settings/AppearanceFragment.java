@@ -18,6 +18,7 @@ public class AppearanceFragment extends PreferenceFragment {
         addPreferencesFromResource(R.xml.set_appearance);
 
         SettingsActivity.bindPreferenceSummaryToValue(findPreference("appearance_dateformat"));
-
+        SettingsActivity.bindPreferenceSummaryToValue(findPreference("appearance_pageformat"));
+        SettingsActivity.bindPreferenceSummaryToValue(findPreference("appearance_pagesearch"));
     }
 }

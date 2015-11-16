@@ -1,5 +1,6 @@
 package at.mvl.musikvereinleopoldsdorf.content.adapters;
 
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,12 +20,14 @@ import at.mvl.mvllib.data.Seite;
  */
 public class StueckAdapter extends BaseExpandableListAdapter {
 
-    Buchsammlung buecher;
-    LayoutInflater inflater;
+    private Buchsammlung buecher;
+    private Buchsammlung original;
+    private LayoutInflater inflater;
 
-    public StueckAdapter(Buchsammlung buecher, LayoutInflater inflater) {
+    public StueckAdapter(Buchsammlung buecher, Buchsammlung original, LayoutInflater inflater) {
         this.buecher = buecher;
         this.inflater = inflater;
+        this.original = original;
     }
 
     @Override
@@ -67,7 +70,7 @@ public class StueckAdapter extends BaseExpandableListAdapter {
         View buchList = inflater.inflate(R.layout.buch_row, parent, false);
 
         TextView titel = (TextView) buchList.findViewById(R.id.buch_titel);
-        titel.setText(getGroup(groupPosition).getName());
+        titel.setText(getTitle(getGroup(groupPosition)));
 
         return buchList;
     }
@@ -81,7 +84,7 @@ public class StueckAdapter extends BaseExpandableListAdapter {
         TextView nummer = (TextView) row.findViewById(R.id.stueck_nummer);
         TextView titel = (TextView) row.findViewById(R.id.stueck_name);
 
-        nummer.setText(""+seite.getNummer());
+        nummer.setText("" + seite.getNummer());
         titel.setText(seite.getTitel());
 
         return row;
@@ -90,5 +93,53 @@ public class StueckAdapter extends BaseExpandableListAdapter {
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {
         return false;
+    }
+
+    private String getTitle(Buch buch) {
+        Buch original = searchBook(buch);
+
+        String att = PreferenceManager.getDefaultSharedPreferences(inflater.getContext()).getString("appearance_pageformat", "");
+        StringBuilder sb = new StringBuilder();
+        char[] attb = att.toCharArray();
+        boolean varMode = false;
+        for (int i = 0; i < attb.length; i++) {
+            char chari = attb[i];
+            if (chari == '$') {
+                if (varMode)
+                    sb.append(chari);
+                else
+                    varMode = true;
+            } else if (varMode) {
+                switch (chari) {
+                    case 'n': {
+                        sb.append(buch.getName());
+                        break;
+                    }
+                    case 'f': {
+                        sb.append(buch.size());
+                        break;
+                    }
+                    case 's': {
+                        sb.append(original.size());
+                        break;
+                    }
+                    case 'l': {
+                        sb.append(original.getLastPage().getNummer());
+                        break;
+                    }
+                }
+                varMode=false;
+            } else
+                sb.append(chari);
+
+        }
+        return sb.toString();
+    }
+
+    private Buch searchBook(Buch buch) {
+        for (Buch b : original)
+            if (buch.getId() == b.getId())
+                return b;
+        return new Buch(0, "");
     }
 }

@@ -9,20 +9,6 @@
         android:singleLine="true"
         android:title="@string/set_link_termine" />
     <EditTextPreference
-        android:defaultValue="@string/set_link_mitglieder_def"
-        android:key="link_mitglieder"
-        android:maxLines="1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="@string/set_link_mitglieder" />
-    <EditTextPreference
-        android:defaultValue="@string/set_link_vorstand_def"
-        android:key="link_vorstand"
-        android:maxLines="1"
-        android:selectAllOnFocus="true"
-        android:singleLine="true"
-        android:title="@string/set_link_vorstand" />
-    <EditTextPreference
         android:defaultValue="@string/set_link_stuecke_def"
         android:key="link_stuecke"
         android:maxLines="1"
