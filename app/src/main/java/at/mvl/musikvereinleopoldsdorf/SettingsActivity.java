@@ -162,6 +162,8 @@ public class SettingsActivity extends AppCompatPreferenceActivity {
      */
     public static void bindPreferenceSummaryToValue(Preference preference) {
         // Set the listener to watch for value changes.
+        if(preference==null)
+            return;
         preference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
 
         // Trigger the listener immediately with the preference's

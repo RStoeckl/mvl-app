@@ -101,6 +101,8 @@ public class StueckAdapter extends BaseExpandableListAdapter {
         String att = PreferenceManager.getDefaultSharedPreferences(inflater.getContext()).getString("appearance_pageformat", "");
         StringBuilder sb = new StringBuilder();
         char[] attb = att.toCharArray();
+        if (buch == null || original == null)
+            return "";
         boolean varMode = false;
         for (int i = 0; i < attb.length; i++) {
             char chari = attb[i];
@@ -124,11 +126,13 @@ public class StueckAdapter extends BaseExpandableListAdapter {
                         break;
                     }
                     case 'l': {
-                        sb.append(original.getLastPage().getNummer());
+                        Seite s = original.getLastPage();
+                        if (s != null)
+                            sb.append(s.getNummer());
                         break;
                     }
                 }
-                varMode=false;
+                varMode = false;
             } else
                 sb.append(chari);
 
